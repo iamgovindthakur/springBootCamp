@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import mvc.validation.CourseCode;
+
 public class Customer {
 	
 	private String firstName;
@@ -22,7 +24,18 @@ public class Customer {
 	
 	@Pattern(regexp="^[0-9]{6}", message="only 5 digits")
 	private String postalCode;
+	
+	@CourseCode(value="TOPS", message="must start with TOPS")
+	private String courseCode;
 
+
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
 
 	public String getPostalCode() {
 		return postalCode;
